@@ -1,35 +1,50 @@
-import 'package:demo25/services/api/_base_api_service.dart';
-import 'package:logger/logger.dart';
+import 'dart:convert';
 
-class AuthService extends BaseAPIService<Null> {
+import 'package:demo25/models/remote/auth.dart';
+import 'package:demo25/services/api/_base_api_service.dart';
+
+class AuthService extends BaseAPIService<FCUser> {
   @override
   String get endpoint => '/auth';
 
   @override
-  Null createFromJson(Map<String, dynamic> json) {
+  FCUser createFromJson(Map<String, dynamic> json) {
     throw UnimplementedError(
       'AuthService does not support single responses yet.',
     );
   }
 
   @override
-  List<Null> createListFromResponse(Map<String, dynamic> response) {
+  List<FCUser> createListFromResponse(Map<String, dynamic> response) {
     throw UnimplementedError(
       'AuthService does not support list responses yet.',
     );
   }
 
-  Future<void> register() async {
-    final response = await networkUtil.post('/auth/register');
+  Future<FCUser> register() async {
+    final response = await networkUtil.post('/auth/register-student');
 
-    Logger().f(response);
+    return FCUser.fromJson(response['data'] as Map<String, dynamic>);
+  }
+
+  Future<String> signIn({required SignInDTO signInDTO}) async {
+    final response = await networkUtil.post(
+      '$endpoint/login',
+      body: json.encode(signInDTO.toJson()),
+    );
+
+    return response['token'] as String;
+  }
+
+  Future<FCUser> getUser() async {
+    final response = await networkUtil.get(
+      '$endpoint/me',
+    );
+
+    return FCUser.fromJson(response['data'] as Map<String, dynamic>);
   }
 
   Future<void> deleteAccount() async {
-    try {
-      await networkUtil.delete('$endpoint/delete-account');
-    } catch (e) {
-      rethrow;
-    }
+    await networkUtil.delete('$endpoint/delete-account');
   }
 }

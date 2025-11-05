@@ -11,6 +11,7 @@ Future<void> main() async {
     values: FCValues(
       baseDomain: 'flutterconke.fly.dev', // If the API resides on your computer
       urlScheme: 'https',
+      hiveBox: 'demo25Box-local',
     ),
   );
 

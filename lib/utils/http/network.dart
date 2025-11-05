@@ -2,9 +2,11 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:demo25/models/remote/failure.dart';
+import 'package:demo25/services/local_storage/hive/hive_service.dart';
 import 'package:demo25/utils/constants.dart';
 import 'package:demo25/utils/http/retry_interceptor.dart';
 import 'package:demo25/utils/misc.dart';
+import 'package:demo25/utils/singletons.dart';
 import 'package:dio/dio.dart';
 // import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
@@ -50,8 +52,8 @@ class NetworkUtil {
     dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          const token = 'dummy-token'; // TODO: Replace with actual token
-          if (token.isNotEmpty) {
+          final token = getIt<HiveService>().auth.retrieveToken();
+          if (token != null && token.isNotEmpty) {
             options.headers['Authorization'] = 'Bearer $token';
           }
 
@@ -99,7 +101,7 @@ class NetworkUtil {
         );
       case 401:
         // Clear token on authentication failure
-        // getIt<HiveService>().clearBox();
+        getIt<HiveService>().clearBox();
         throw Failure(
           message: 'Authentication failed. Please login again.',
           statusCode: statusCode,

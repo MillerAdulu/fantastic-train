@@ -11,6 +11,7 @@ Future<void> main() async {
     values: FCValues(
       baseDomain: 'flutterconke.fly.dev',
       urlScheme: 'https',
+      hiveBox: 'demo25Box-staging',
     ),
   );
 

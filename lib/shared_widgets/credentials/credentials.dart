@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:demo25/utils/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -48,7 +50,7 @@ class GenerateAccountSuccessView extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                email.replaceAll('@fluttercondev.ke', ''),
+                email.replaceAll('@parkroadfellowship.org', ''),
                 style: theme.textTheme.displayMedium?.copyWith(
                   color: theme.colorScheme.primary,
                   letterSpacing: 8,
@@ -62,7 +64,7 @@ class GenerateAccountSuccessView extends StatelessWidget {
               Gaimon.selection();
               Clipboard.setData(
                 ClipboardData(
-                  text: email.replaceAll('@fluttercondev.ke', ''),
+                  text: email.replaceAll('@parkroadfellowship.org', ''),
                 ),
               );
               ScaffoldMessenger.of(context)
@@ -82,8 +84,7 @@ class GenerateAccountSuccessView extends StatelessWidget {
             onPressed: () {
               Gaimon.selection();
               Navigator.of(context).pop();
-              // TODO: Navigate to student landing
-              // context.router.pushPath(FCStudentsRouter.studentLandingRoute);
+              context.router.pushPath(FCRouter.landing);
             },
             child: const Text('Continue to App'),
           ),
