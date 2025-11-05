@@ -5,6 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch local",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main_local.dart",
+      "args": [
+        "--flavor",
+        "development",
+        "--target",
+        "lib/main_local.dart"
+      ]
+    },
+    {
       "name": "Launch development",
       "request": "launch",
       "type": "dart",

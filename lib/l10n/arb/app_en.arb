@@ -1,7 +1,33 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
+    "welcome": "Welcome back!",
+    "@welcome": {},
+    "journeyStartsHere": "Your journey starts here",
+    "@journeyStartsHere": {},
+    "iHaveACode": "I Have a Code",
+    "@iHaveACode": {},
+    "iHaveACodeDesc": "Continue using your 5-character code",
+    "@iHaveACodeDesc": {},
+    "generateNewCode": "Generate New Code",
+    "@generateNewCode": {},
+    "signInWithCode": "Sign In with Code",
+    "@signInWithCode": {},
+    "pleaseEnterCode": "Please enter a valid 5-character code",
+    "@pleaseEnterCode": {},
+    "enterCode": "Enter Your 5-Character Code",
+    "@enterCode": {},
+    "enterCodeDesc": "This was provided when you registered.",
+    "@enterCodeDesc": {},
+    "generateMyCode": "Generate My Code",
+    "@generateMyCode": {},
+    "generateNewCodeDesc": "Create a fresh account instantly",
+    "@generateNewCodeDesc": {},
+     "version": " v{version}",
+    "@version": {
+        "placeholders": {
+            "version": {
+                "type": "String"
+            }
+        }
     }
 }

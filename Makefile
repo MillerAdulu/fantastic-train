@@ -10,7 +10,7 @@ gen:
 fmt:
 		dart fix --apply && dart format lib test
 
-localize:
+l10n:
 		flutter gen-l10n
 
 apk:

@@ -5,9 +5,11 @@
 *.swp
 .DS_Store
 .atom/
+.build/
 .buildlog/
 .history
 .svn/
+.swiftpm/
 migrate_working_dir/
 
 # IntelliJ related
@@ -113,3 +115,9 @@ app.*.map.json
 
 # Generated l10n files
 lib/l10n/gen/
+
+# Build files
+*.g.dart
+*.freezed.dart
+*.gr.dart
+lib/versioning/build_version.dart
