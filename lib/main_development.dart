@@ -1,8 +1,12 @@
 import 'package:demo25/app/app.dart';
 import 'package:demo25/bootstrap.dart';
+import 'package:demo25/features/auth/cubit/auth_cubit.dart';
+import 'package:demo25/features/auth/providers/auth_provider.dart';
 import 'package:demo25/utils/constants.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +24,17 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]).then(
     (_) async => bootstrap(
-      () => const FCDemo25(),
+      () => MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ],
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (_) => AuthCubit()),
+          ],
+          child: const FCDemo25(),
+        ),
+      ),
     ),
   );
 }
