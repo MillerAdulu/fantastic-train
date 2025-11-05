@@ -6,7 +6,7 @@ import 'package:demo25/utils/constants.dart';
 import 'package:demo25/utils/http/retry_interceptor.dart';
 import 'package:demo25/utils/misc.dart';
 import 'package:dio/dio.dart';
-import 'package:dio/io.dart';
+// import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -50,7 +50,7 @@ class NetworkUtil {
     dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          const token = 'dummy-token';
+          const token = 'dummy-token'; // TODO: Replace with actual token
           if (token.isNotEmpty) {
             options.headers['Authorization'] = 'Bearer $token';
           }
@@ -73,11 +73,11 @@ class NetworkUtil {
       );
     }
 
-    // Certificate handling for development.
-    if (kDebugMode) {
-      (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () =>
-          HttpClient()..badCertificateCallback = (_, _, _) => true;
-    }
+    // Certificate handling for development on mobile.
+    // if (kDebugMode) {
+    //   (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () =>
+    //       HttpClient()..badCertificateCallback = (_, _, _) => true;
+    // }
 
     _dioCache[cacheKey] = dio;
     return dio;

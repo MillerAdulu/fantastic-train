@@ -121,3 +121,8 @@ lib/l10n/gen/
 *.freezed.dart
 *.gr.dart
 lib/versioning/build_version.dart
+
+# Workshop files
+WORKSHOP_1_Flow.md
+WORKSHOP_2_Persistence.md
+WORKSHOP_3_Live.md

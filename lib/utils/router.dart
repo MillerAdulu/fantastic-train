@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 
 class FCRouter {
   static String get initialRoute => '/';
+  static String get landing => '/landing';
 
   static Map<String, WidgetBuilder> get routes {
     return {
