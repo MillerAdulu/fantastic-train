@@ -8,7 +8,7 @@ import 'package:demo25/utils/http/retry_interceptor.dart';
 import 'package:demo25/utils/misc.dart';
 import 'package:demo25/utils/singletons.dart';
 import 'package:dio/dio.dart';
-// import 'package:dio/io.dart';
+import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -39,7 +39,6 @@ class NetworkUtil {
         headers: <String, dynamic>{
           'Accept': 'application/json',
           'X-App-Version': Misc.getFullAppVersion(),
-          'User-Agent': 'FC/${Misc.getFullAppVersion()}',
         },
         // Fixed timeout configuration
         connectTimeout: const Duration(seconds: 30),
@@ -76,10 +75,10 @@ class NetworkUtil {
     }
 
     // Certificate handling for development on mobile.
-    // if (kDebugMode) {
-    //   (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () =>
-    //       HttpClient()..badCertificateCallback = (_, _, _) => true;
-    // }
+    if (kDebugMode) {
+      (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () =>
+          HttpClient()..badCertificateCallback = (_, _, _) => true;
+    }
 
     _dioCache[cacheKey] = dio;
     return dio;
