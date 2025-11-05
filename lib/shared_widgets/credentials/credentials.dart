@@ -50,7 +50,7 @@ class GenerateAccountSuccessView extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                email.replaceAll('@parkroadfellowship.org', ''),
+                email.replaceAll('@fluttercondev.ke', ''),
                 style: theme.textTheme.displayMedium?.copyWith(
                   color: theme.colorScheme.primary,
                   letterSpacing: 8,
@@ -64,7 +64,7 @@ class GenerateAccountSuccessView extends StatelessWidget {
               Gaimon.selection();
               Clipboard.setData(
                 ClipboardData(
-                  text: email.replaceAll('@parkroadfellowship.org', ''),
+                  text: email.replaceAll('@fluttercondev.ke', ''),
                 ),
               );
               ScaffoldMessenger.of(context)

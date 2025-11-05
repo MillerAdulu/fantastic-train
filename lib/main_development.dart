@@ -1,8 +1,10 @@
 import 'package:demo25/app/app.dart';
 import 'package:demo25/bootstrap.dart';
 import 'package:demo25/utils/constants.dart';
+import 'package:demo25/utils/singletons.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' show MultiBlocProvider;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +23,10 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]).then(
     (_) async => bootstrap(
-      () => const FCDemo25(),
+      () =>   MultiBlocProvider(
+        providers: Singletons.registerCubits(),
+        child: const FCDemo25(),
+      ),
     ),
   );
 }

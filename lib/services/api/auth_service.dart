@@ -22,7 +22,7 @@ class AuthService extends BaseAPIService<FCUser> {
   }
 
   Future<FCUser> register() async {
-    final response = await networkUtil.post('/auth/register-student');
+    final response = await networkUtil.post('/auth/register');
 
     return FCUser.fromJson(response['data'] as Map<String, dynamic>);
   }

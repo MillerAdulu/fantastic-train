@@ -5,7 +5,6 @@ import 'package:demo25/l10n/l10n.dart';
 import 'package:demo25/shared_widgets/credentials/credentials.dart';
 import 'package:demo25/utils/misc.dart';
 import 'package:demo25/utils/router/router.dart';
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -240,10 +239,7 @@ class _AnimatedLogo extends StatelessWidget {
               ),
             ],
           ),
-          child: ExtendedImage.asset(
-            'assets/images/wide-logo.png',
-            height: 60,
-          ),
+          child: const FlutterLogo(size: 96),
         ),
       ),
     );
