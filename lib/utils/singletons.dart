@@ -5,6 +5,7 @@ import 'package:demo25/services/api/auth_service.dart';
 import 'package:demo25/services/api/widget_service.dart';
 import 'package:demo25/services/local_storage/hive/hive_service.dart';
 import 'package:demo25/services/local_storage/isar/isar_service.dart';
+import 'package:demo25/services/socket_service.dart';
 import 'package:demo25/utils/router/router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -20,7 +21,10 @@ class Singletons {
       ..registerSingleton<HiveService>(HiveService())
       ..registerSingleton<IsarService>(IsarService())
       ..registerSingleton<WidgetService>(WidgetService())
-      ..registerSingleton<AuthService>(AuthService());
+      ..registerSingleton<AuthService>(AuthService())
+      ..registerSingleton<SocketService>(
+        SocketServiceImpl(isarService: getIt()),
+      );
   }
 
   static Future<void> setupDatabases() async {

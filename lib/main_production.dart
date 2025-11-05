@@ -14,6 +14,10 @@ Future<void> main() async {
       baseDomain: 'flutterconke.fly.dev',
       urlScheme: 'https',
       hiveBox: 'demo25Box',
+      socketDomain: 'flutterconke.fly.dev',
+      socketKey: 'kjxfmb5qs4kdo3zb4u9p',
+      socketScheme: 'wss',
+      socketPort: 443,
     ),
   );
 

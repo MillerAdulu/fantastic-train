@@ -14,6 +14,10 @@ Future<void> main() async {
       baseDomain: 'flutterconke.fly.dev', // If the API resides on your computer
       urlScheme: 'https',
       hiveBox: 'demo25Box-local',
+      socketDomain: 'flutterconke.fly.dev',
+      socketKey: 'kjxfmb5qs4kdo3zb4u9p',
+      socketScheme: 'wss',
+      socketPort: 443,
     ),
   );
 
@@ -23,7 +27,7 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]).then(
     (_) async => bootstrap(
-      () =>   MultiBlocProvider(
+      () => MultiBlocProvider(
         providers: Singletons.registerCubits(),
         child: const FCDemo25(),
       ),
