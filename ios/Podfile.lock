@@ -2,6 +2,8 @@ PODS:
   - Flutter (1.0.0)
   - gaimon (0.0.1):
     - Flutter
+  - isar_community_flutter_libs (1.0.0):
+    - Flutter
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -9,6 +11,7 @@ PODS:
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - gaimon (from `.symlinks/plugins/gaimon/ios`)
+  - isar_community_flutter_libs (from `.symlinks/plugins/isar_community_flutter_libs/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
 
 EXTERNAL SOURCES:
@@ -16,12 +19,15 @@ EXTERNAL SOURCES:
     :path: Flutter
   gaimon:
     :path: ".symlinks/plugins/gaimon/ios"
+  isar_community_flutter_libs:
+    :path: ".symlinks/plugins/isar_community_flutter_libs/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
 
 SPEC CHECKSUMS:
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
   gaimon: ce0b5c042363ed957bb92ee755c361903d3ce0ef
+  isar_community_flutter_libs: bede843185a61a05ff364a05c9b23209523f7e0d
   path_provider_foundation: bb55f6dbba17d0dccd6737fe6f7f34fbd0376880
 
 PODFILE CHECKSUM: 3c63482e143d1b91d2d2560aee9fb04ecc74ac7e
